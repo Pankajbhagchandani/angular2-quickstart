@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="70px" height="79px" viewBox="0 0 70 79" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.1.1 (8761) - http://www.bohemiancoding.com/sketch -->
+    <title>telstra-logo</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="telstra-logo" sketch:type="MSArtboardGroup" transform="translate(-1.000000, 0.000000)">
+            <g sketch:type="MSLayerGroup" transform="translate(1.000000, 0.000000)" id="Imported-Layers">
+                <g sketch:type="MSShapeGroup">
+                    <path d="M46.4639,34.3012456 L43.3951,52.1503947 C42.7616,55.3623684 40.6252,56.2313684 38.7282,56.2313684 L24.5161,56.2313684 L30.5046,23.5399211 C24.5245,20.8324386 18.4198,19.0646404 13.5569,19.0646404 C8.9313,19.0646404 5.1751,20.303 2.6775,23.2703509 C0.917,25.3797895 0.0399,27.9833246 0.0399,31.0802632 C0.0399,40.3745439 7.4242,53.2709474 20.0627,63.791114 C31.3299,73.0902456 43.7241,78.2966228 52.7457,78.2966228 C57.246,78.2966228 60.8769,76.9328333 63.2597,74.2094123 C65.1357,72.1020526 65.8833,69.3689298 65.8833,66.2726842 C65.8833,57.2417368 58.4458,44.5809474 46.4639,34.3012456" id="Fill-1" fill="#E7328A"></path>
+                    <path d="M20.9461,-0.277885965 C18.69,-0.277885965 16.8154,1.22103509 16.3156,3.57371053 L14.3157,14.3482018 L32.1874,14.3482018 L24.5161,56.2313684 L38.7282,56.2313684 C40.6252,56.2313684 42.7616,55.3623684 43.3951,52.1503947 L49.8946,14.3482018 L62.7501,14.3482018 C65.0146,14.3482018 66.885,12.8596754 67.3869,10.5090789 L69.3931,-0.277885965 L20.9461,-0.277885965" id="Fill-2" fill="#6C1461"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

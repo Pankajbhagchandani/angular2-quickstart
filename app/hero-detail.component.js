@@ -21,7 +21,7 @@ var HeroDetailComponent = (function () {
     HeroDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.route.params.forEach(function (params) {
-            var id = +params['id'];
+            var id = +params['username'];
             _this.heroService.getHero(id)
                 .then(function (hero) { return _this.hero = hero; });
         });

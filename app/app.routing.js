@@ -3,15 +3,35 @@ var router_1 = require('@angular/router');
 var dashboard_component_1 = require('./dashboard.component');
 var heroes_component_1 = require('./heroes.component');
 var hero_detail_component_1 = require('./hero-detail.component');
+var login_component_1 = require('./components/login/login.component');
+var home_component_1 = require('./components/home/home.component');
+var request_component_1 = require('./components/request/request.component');
+var browse_all_component_1 = require('./components/home/browse.all.component');
 var appRoutes = [
     {
         path: '',
-        redirectTo: '/dashboard',
+        redirectTo: '/login',
         pathMatch: 'full'
+    },
+    {
+        path: 'login',
+        component: login_component_1.LoginComponent
     },
     {
         path: 'dashboard',
         component: dashboard_component_1.DashboardComponent
+    },
+    {
+        path: 'home',
+        component: home_component_1.HomeComponent
+    },
+    {
+        path: 'allRequests',
+        component: browse_all_component_1.BrowseAllComponent
+    },
+    {
+        path: 'new',
+        component: request_component_1.RequestComponent
     },
     {
         path: 'detail/:id',

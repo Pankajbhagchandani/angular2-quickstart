@@ -1,0 +1,97 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">APN Self Service Portal</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="link"><a class="link" routerLink="/home" routerLinkActive="active">Home</a></li>
+            <li class="active"><a class="link" routerLink="/allRequests" routerLinkActive="active">Browse all requests</a></li>
+            <li class="link"><a class="link" routerLink="/allRequests" routerLinkActive="active">Requests for approval</a></li>
+            <li class="link"><a class="link" routerLink="/new">New Request</a></li>
+            <li><a class="link" routerLink="/about">About</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Pankaj</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="jumbotron">
+        <div class="container-fluid">
+            <div class="col-md-4">
+                <form #searchForm="ngForm">
+                    <div class="form-group">
+                        <label for="filter">Search by Platform</label>
+                        <ng-select id ='filter'
+                                [options]="options_platform"
+                                (selected)="updateFilter($event)"
+                                (deselected)="onDeselected($event)"
+                                [allowClear]="true">
+                        </ng-select>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <form #searchForm="ngForm">
+                    <div class="form-group">
+                        <label for="host">Search by Host</label>
+                        <input type='text' class="form-control"
+                               id ='host' placeholder='Type to filter the name column...'
+                               (keyup)='filterByHostName($event)'/>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <form #searchForm="ngForm">
+                    <div class="form-group">
+                        <label for="port">Search by Port</label>
+                        <input type='text' class="form-control"
+                               id ='port' placeholder='Type to filter the name column...'
+                               (keyup)='filterByPort($event)'/>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-12">
+                <h4>Request Summary</h4>
+                <ngx-datatable class="material table table-striped"
+                               [rows]="rows"
+                               [columns]="columns"
+                               [sortType]="'multi'"
+                               [columnMode]="'force'"
+                               [headerHeight]="50"
+                               [footerHeight]="50"
+                               [rowHeight]="50"
+                               [limit]="2"
+                               [scrollbarV]="true"
+                               [selected]="selected"
+                               [selectionType]="'single'"
+                               (select)='onSelect($event)'>
+                </ngx-datatable>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" *ngIf="displayRequestDetails">
+    <div class="jumbotron">
+        <div class="container-fluid">
+            <div class="col-md-12">
+                <h4>Port Connection Details</h4>
+                <ngx-datatable class="material table table-striped"
+                               [rows]="port_detail_rows"
+                               [columns]="port_detail_columns"
+                               [sortType]="'multi'"
+                               [columnMode]="'force'"
+                               [headerHeight]="50"
+                               [footerHeight]="50"
+                               [rowHeight]="50"
+                               [limit]="2"
+                               [scrollbarV]="true"
+                               [selected]="selected"
+                               [selectionType]="'single'"
+                               (select)='onSelect($event)'>
+                </ngx-datatable>
+            </div>
+        </div>
+    </div>
+</div>

@@ -24,6 +24,9 @@
             // other libraries
             'rxjs':                       'npm:rxjs',
             'angular2-in-memory-web-api': 'npm:angular2-in-memory-web-api',
+
+            '@swimlane/ngx-datatable': 'npm:@swimlane/ngx-datatable/release/index.js',
+            'angular2-select': 'npm:angular2-select',
         },
         // packages tells the System loader how to load when no filename and/or no extension
         packages: {
@@ -35,6 +38,10 @@
                 defaultExtension: 'js'
             },
             'angular2-in-memory-web-api': {
+                main: './index.js',
+                defaultExtension: 'js'
+            },
+            'angular2-select': {
                 main: './index.js',
                 defaultExtension: 'js'
             }

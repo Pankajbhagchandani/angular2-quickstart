@@ -11,12 +11,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
+var ngx_datatable_1 = require('@swimlane/ngx-datatable');
+var angular2_select_1 = require('angular2-select');
 var app_component_1 = require('./app.component');
 var dashboard_component_1 = require('./dashboard.component');
 var hero_detail_component_1 = require('./hero-detail.component');
 var heroes_component_1 = require('./heroes.component');
 var hero_service_1 = require('./hero.service');
 var app_routing_1 = require('./app.routing');
+var login_component_1 = require('./components/login/login.component');
+var home_component_1 = require('./components/home/home.component');
+var browse_all_component_1 = require('./components/home/browse.all.component');
+var request_component_1 = require('./components/request/request.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -25,10 +31,16 @@ var AppModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
+                ngx_datatable_1.NgxDatatableModule,
+                angular2_select_1.SelectModule,
                 app_routing_1.routing
             ],
             declarations: [
                 app_component_1.AppComponent,
+                login_component_1.LoginComponent,
+                home_component_1.HomeComponent,
+                browse_all_component_1.BrowseAllComponent,
+                request_component_1.RequestComponent,
                 dashboard_component_1.DashboardComponent,
                 hero_detail_component_1.HeroDetailComponent,
                 heroes_component_1.HeroesComponent
