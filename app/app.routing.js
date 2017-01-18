@@ -7,6 +7,8 @@ var login_component_1 = require('./components/login/login.component');
 var home_component_1 = require('./components/home/home.component');
 var request_component_1 = require('./components/request/request.component');
 var browse_all_component_1 = require('./components/home/browse.all.component');
+var approval_component_1 = require('./components/approval/approval.component');
+var browse_host_component_1 = require('./components/home/browse.host.component');
 var appRoutes = [
     {
         path: '',
@@ -26,8 +28,16 @@ var appRoutes = [
         component: home_component_1.HomeComponent
     },
     {
+        path: 'approve',
+        component: approval_component_1.ApprovalComponent
+    },
+    {
         path: 'allRequests',
         component: browse_all_component_1.BrowseAllComponent
+    },
+    {
+        path: 'byHost',
+        component: browse_host_component_1.BrowseHostComponent
     },
     {
         path: 'new',

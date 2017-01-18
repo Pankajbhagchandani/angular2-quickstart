@@ -32,26 +32,31 @@ var HomeComponent = (function () {
             }
         ];
         this.rows = [
-            { ReqId: '1001', Date: '11/12/2016', Requester: 'c998366', Platform: 'DFAS', ReqTitle: 'Port Allocation for Replication', Status: 'Pending Approval' },
-            { ReqId: '1002', Date: '12/12/2016', Requester: 'c998367', Platform: 'Gateway', ReqTitle: 'Port Allocation for Replication', Status: 'Pending Approval' },
-            { ReqId: '1003', Date: '13/12/2016', Requester: 'c998389', Platform: 'BaaS', ReqTitle: '10G allocation', Status: 'Pending Approval' },
-            { ReqId: '1004', Date: '14/12/2016', Requester: 'c998312', Platform: 'Gateway', ReqTitle: 'Netapp connection', Status: 'Pending Approval' },
+            { ReqId: '1001', Date: '11/12/2016', Time: '00:20:13:22', Requester: 'c998312', Platform: 'DFAS', ReqTitle: 'Port Allocation for Replication', Status: 'Pending Approval' },
+            { ReqId: '1002', Date: '12/12/2016', Time: '00:20:13:22', Requester: 'c998312', Platform: 'Gateway', ReqTitle: 'Port Allocation for Replication', Status: 'Pending Approval' },
+            { ReqId: '1003', Date: '13/12/2016', Time: '00:20:13:22', Requester: 'c998312', Platform: 'BaaS', ReqTitle: '10G allocation', Status: 'Pending Approval' },
+            { ReqId: '1004', Date: '14/12/2016', Time: '00:20:13:22', Requester: 'c998312', Platform: 'Gateway', ReqTitle: 'Netapp connection', Status: 'Pending Approval' },
+            { ReqId: '1005', Date: '14/12/2016', Time: '00:20:13:22', Requester: 'c998312', Platform: 'Gateway', ReqTitle: 'Netapp connection', Status: 'Pending Approval' },
+            { ReqId: '1006', Date: '14/12/2016', Time: '00:20:13:22', Requester: 'c998312', Platform: 'Gateway', ReqTitle: 'Netapp connection', Status: 'Pending Approval' },
+            { ReqId: '1007', Date: '14/12/2016', Time: '00:20:13:22', Requester: 'c998312', Platform: 'Gateway', ReqTitle: 'Netapp connection', Status: 'Pending Approval' },
         ];
         this.columns = [
             { prop: 'ReqId' },
             { prop: 'Date' },
+            { prop: 'Time' },
             { prop: 'Requester' },
             { prop: 'Platform' },
             { prop: 'ReqTitle' },
             { prop: 'Status' },
         ];
         this.req_detail_rows = [
-            { PortId: 'E1117', UUID: 'a18083b5-01b2-4e5d-b352-560e8e189db6', Bandwidth: '10G', Type: 'Dual', VLANMode: 'Trunk',
+            { ReqId: '1001', PortId: 'E1117', UUID: 'a18083b5-01b2-4e5d-b352-560e8e189db6', Bandwidth: '10G', Type: 'Dual', VLANMode: 'Trunk',
                 Connection: 'SFP', DeviceModel: 'CISCO 9396', HostName: 'CLA1-APN-M-L-06', DataCentre: 'CLY', RoomNumber: 'DE', RackLocation: '34', Aisle: '2' },
-            { PortId: 'E1117', UUID: 'a18083b5-01b2-4e5d-b352-560e8e189db6', Bandwidth: '10G', Type: 'Dual', VLANMode: 'Trunk',
+            { ReqId: '1001', PortId: 'E1117', UUID: 'a18083b5-01b2-4e5d-b352-560e8e189db6', Bandwidth: '10G', Type: 'Dual', VLANMode: 'Trunk',
                 Connection: 'SFP', DeviceModel: 'CISCO 9396', HostName: 'CLA1-APN-M-L-07', DataCentre: 'CLY', RoomNumber: 'DE', RackLocation: '35', Aisle: '6' }
         ];
         this.req_detail_columns = [
+            { prop: 'ReqId' },
             { prop: 'PortId' },
             { prop: 'UUID' },
             { prop: 'Bandwidth' },
@@ -81,6 +86,8 @@ var HomeComponent = (function () {
     HomeComponent.prototype.onSelect = function (_a) {
         var selected = _a.selected;
         console.log('Select Event', selected, this.selected);
+        this.req_detail_rows[0].ReqId = selected[0].ReqId;
+        this.req_detail_rows[1].ReqId = selected[0].ReqId;
         this.displayRequestDetails = true;
     };
     HomeComponent.prototype.onDeselected = function (item) {

@@ -1,0 +1,167 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">APN Self Service Portal</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="link"><a class="link" routerLink="/home">Home</a></li>
+            <li class="link"><a class="link" routerLink="/allRequests">Browse all requests</a></li>
+            <li class="link"><a class="link" routerLink="/byHost">Browse by host</a></li>
+            <li class="active"><a class="link" routerLink="/approve" routerLinkActive="active">Requests for approval</a></li>
+            <li class="link"><a class="link" routerLink="/new">New Request</a></li>
+            <li><a class="link" routerLink="/about">About</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Pankaj</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="jumbotron">
+        <div class="container-fluid">
+            <div class="col-md-4">
+                <form #searchForm="ngForm">
+                    <div class="form-group">
+                        <label for="filter">Search by Platform</label>
+                        <ng-select id="filter"
+                                [options]="options_platform"
+                                (selected)="updateFilter($event)"
+                                (deselected)="onDeselected($event)"
+                                [allowClear]="true">
+                        </ng-select>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-12">
+                <h4>Request for your approval</h4>
+                <ngx-datatable class="material table table-striped"
+                               [rows]="rows"
+                               [columns]="columns"
+                               [sortType]="'multi'"
+                               [columnMode]="'force'"
+                               [headerHeight]="50"
+                               [footerHeight]="50"
+                               [rowHeight]="50"
+                               [limit]="2"
+                               [scrollbarV]="true"
+                               [selected]="selected"
+                               [selectionType]="'single'"
+                               (select)='onSelect($event)'>
+                </ngx-datatable>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="displayRequestDetails" class="container-fluid">
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">Project Details</div>
+            <div class="panel-body">
+                <div class="form-group row">
+                    <label for="projectName" class="col-sm-2 col-form-label">Project Name</label>
+                    <div class="col-sm-4" id="projectName">
+                        {{model.projectName}}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="description" class="col-sm-2 col-form-label">Project Description</label>
+                    <div class="col-sm-4" id="description">
+                        {{model.description}}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="manager" class="col-sm-2 col-form-label">Project Manager</label>
+                    <div class="col-sm-4" id ="manager">
+                        {{model.manager}}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="architect" class="col-sm-2 col-form-label">Project Architect</label>
+                    <div class="col-sm-4" id="architect">
+                        {{model.architect}}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="projectName" class="col-sm-2 col-form-label">Business Owner</label>
+                    <div class="col-sm-4">
+                        {{model.owner}}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="projectName" class="col-sm-2 col-form-label">Platform Name</label>
+                    <div class="col-sm-4">
+                        {{model.platform}}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="projectName" class="col-sm-2 col-form-label">1-up Manager</label>
+                    <div class="col-sm-4">
+                        {{model.oneUpManager}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">Details about Charging</div>
+            <div class="panel-body">
+                <div class="form-group row">
+                    <label for="CapEx" class="col-sm-2 col-form-label">NWA (CapEx/OpEx)</label>
+                    <div class="col-sm-4" id="CapEx">
+                        {{model.CapEx}}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="projectName" class="col-sm-2 col-form-label">Cost Centre of Business</label>
+                    <div class="col-sm-4">
+                        {{model.costCentre}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">Technical Details</div>
+            <div class="panel-body">
+                <div class="form-group row">
+                    <label for="projectName" class="col-sm-2 col-form-label">Location</label>
+                    <div class="col-sm-4">
+                        {{model.location}}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="projectName" class="col-sm-2 col-form-label">Speed of Interface</label>
+                    <div class="col-sm-4">
+                        {{model.speed}}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="projectName" class="col-sm-2 col-form-label">Port Type</label>
+                    <div class="col-sm-4">
+                        {{model.portType}}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="projectName" class="col-sm-2 col-form-label"># of Ports</label>
+                    <div class="col-sm-4">
+                        {{model.port}}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="projectName" class="col-sm-2 col-form-label">Access/Trunk</label>
+                    <div class="col-sm-4">
+                        {{model.access}}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="projectName" class="col-sm-2 col-form-label">Target Platform</label>
+                    <div class="col-sm-4">
+                        {{model.platformType}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="empty-row"></div>
+        <button type="submit" class="btn btn-primary" (click)="onSubmit()">Approve</button>
+        <button type="button" class="btn btn-secondary" (click)="previous();">Reject</button>
+    </div>
+</div>

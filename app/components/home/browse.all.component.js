@@ -32,21 +32,22 @@ var BrowseAllComponent = (function () {
             }
         ];
         this.rows = [
-            { ReqId: '1001', HostName: 'CLA1-APN-M-L-05', BusinessOwner: 'c998366', Platform: 'DFAS', NetworkDesigner: 'd645447', OperationsContact: 'd887636', PortId: 'E1117', PortType: 'Dual', Bandwidth: '10G' },
-            { ReqId: '1002', HostName: 'CLA1-APN-M-L-06', BusinessOwner: 'c998367', Platform: 'Gateway', NetworkDesigner: 'd645447', OperationsContact: 'd887636', PortId: 'E1118', PortType: 'Dual', Bandwidth: '10G' },
-            { ReqId: '1003', HostName: 'CLA1-APN-M-L-06', BusinessOwner: 'c998389', Platform: 'BaaS', NetworkDesigner: 'd645447', OperationsContact: 'd887636', PortId: 'E1118', PortType: 'Dual', Bandwidth: '10G' },
-            { ReqId: '1004', HostName: 'CLA1-APN-M-L-05', BusinessOwner: 'c998312', Platform: 'Gateway', NetworkDesigner: 'd645447', OperationsContact: 'd887636', PortId: 'E1117', PortType: 'Dual', Bandwidth: '10G' },
+            { ReqId: '1001', Date: '11/12/2016', Time: '00:20:13:22', Requester: 'c998312', Platform: 'DFAS', ReqTitle: 'Port Allocation for Replication', Status: 'Pending Approval' },
+            { ReqId: '1002', Date: '12/12/2016', Time: '00:20:13:22', Requester: 'c998312', Platform: 'Gateway', ReqTitle: 'Port Allocation for Replication', Status: 'Pending Approval' },
+            { ReqId: '1003', Date: '13/12/2016', Time: '00:20:13:22', Requester: 'c998312', Platform: 'BaaS', ReqTitle: '10G allocation', Status: 'Pending Approval' },
+            { ReqId: '1004', Date: '14/12/2016', Time: '00:20:13:22', Requester: 'c998312', Platform: 'Gateway', ReqTitle: 'Netapp connection', Status: 'Pending Approval' },
+            { ReqId: '1005', Date: '14/12/2016', Time: '00:20:13:22', Requester: 'c998312', Platform: 'Gateway', ReqTitle: 'Netapp connection', Status: 'Pending Approval' },
+            { ReqId: '1006', Date: '14/12/2016', Time: '00:20:13:22', Requester: 'c998312', Platform: 'Gateway', ReqTitle: 'Netapp connection', Status: 'Pending Approval' },
+            { ReqId: '1007', Date: '14/12/2016', Time: '00:20:13:22', Requester: 'c998312', Platform: 'Gateway', ReqTitle: 'Netapp connection', Status: 'Pending Approval' },
         ];
         this.columns = [
             { prop: 'ReqId' },
-            { prop: 'HostName' },
-            { prop: 'BusinessOwner' },
+            { prop: 'Date' },
+            { prop: 'Time' },
+            { prop: 'Requester' },
             { prop: 'Platform' },
-            { prop: 'NetworkDesigner' },
-            { prop: 'OperationsContact' },
-            { prop: 'PortId' },
-            { prop: 'PortType' },
-            { prop: 'Bandwidth' },
+            { prop: 'ReqTitle' },
+            { prop: 'Status' },
         ];
         this.port_detail_rows = [
             { PortId: 'E1117', UUID: 'a18083b5-01b2-4e5d-b352-560e8e189db6', Layer: '1', Bandwidth: '10G', Type: 'Dual', VLANMode: 'Trunk', Platform: 'DFAS' },
@@ -90,25 +91,6 @@ var BrowseAllComponent = (function () {
         // filter our data
         var temp = this.temp.filter(function (d) {
             return d.Platform.toLowerCase().indexOf(val) !== -1 || !val;
-        });
-        // update the rows
-        this.rows = temp;
-    };
-    BrowseAllComponent.prototype.filterByHostName = function (event) {
-        var val = event.target.value;
-        // filter our data
-        var temp = this.temp.filter(function (d) {
-            return d.HostName.toLowerCase().indexOf(val) !== -1 || !val;
-        });
-        // update the rows
-        this.rows = temp;
-    };
-    BrowseAllComponent.prototype.filterByPort = function (event) {
-        console.log(event.target.value);
-        var val = event.target.value;
-        // filter our data
-        var temp = this.temp.filter(function (d) {
-            return d.PortId.toLowerCase().indexOf(val) !== -1 || !val;
         });
         // update the rows
         this.rows = temp;

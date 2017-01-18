@@ -6,7 +6,8 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a class="link" routerLink="/home" routerLinkActive="active">Home</a></li>
                     <li class="link"><a class="link" routerLink="/allRequests" routerLinkActive="active">Browse all requests</a></li>
-                    <li class="link"><a class="link" routerLink="/allRequests" routerLinkActive="active">Requests for approval</a></li>
+                    <li class="link"><a class="link" routerLink="/byHost">Browse by host</a></li>
+                    <li class="link"><a class="link" routerLink="/approve" routerLinkActive="active">Requests for approval</a></li>
                     <li class="link"><a class="link" routerLink="/new">New Request</a></li>
                     <li><a class="link" routerLink="/about">About</a></li>
                 </ul>
@@ -18,7 +19,8 @@
 </nav>
 <div class="container-fluid">
     <div class="jumbotron">
-    <div class="container-fluid">
+        <h4>Request Summary</h4>
+        <div class="container-fluid">
         <div class="col-md-4">
             <form #searchForm="ngForm">
                 <div class="form-group">
@@ -33,7 +35,6 @@
             </form>
         </div>
         <div class="col-md-12">
-            <h4>Request Summary</h4>
             <ngx-datatable class="material table table-striped"
                            [rows]="rows"
                            [columns]="columns"
@@ -42,21 +43,22 @@
                            [headerHeight]="50"
                            [footerHeight]="50"
                            [rowHeight]="50"
-                           [limit]="2"
+                           [scrollbarH]="true"
                            [scrollbarV]="true"
                            [selected]="selected"
                            [selectionType]="'single'"
-                           (select)='onSelect($event)'>
+                           (select)='onSelect($event)'
+                           [limit]="2">
             </ngx-datatable>
         </div>
     </div>
-</div>
+    </div>
 </div>
 <div class="container-fluid" *ngIf="displayRequestDetails">
+    <h4>Request Details</h4>
     <div class="jumbotron">
         <div class="container-fluid">
             <div class="col-md-12">
-                <h4>Request Details</h4>
                 <ngx-datatable class="material table table-striped"
                                [rows]="req_detail_rows"
                                [columns]="req_detail_columns"
@@ -65,11 +67,12 @@
                                [headerHeight]="50"
                                [footerHeight]="50"
                                [rowHeight]="50"
-                               [limit]="2"
+                               [scrollbarH]="true"
                                [scrollbarV]="true"
                                [selected]="selected"
                                [selectionType]="'single'"
-                               (select)='onSelect($event)'>
+                               (select)='onSelect($event)'
+                               [limit]="2">
                 </ngx-datatable>
             </div>
         </div>

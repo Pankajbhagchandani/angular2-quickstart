@@ -12,7 +12,9 @@ import { routing } from './app.routing';
 import {LoginComponent} from './components/login/login.component'
 import {HomeComponent} from './components/home/home.component'
 import { BrowseAllComponent }  from './components/home/browse.all.component';
+import { BrowseHostComponent }  from './components/home/browse.host.component';
 import {RequestComponent} from './components/request/request.component';
+import {ApprovalComponent} from './components/approval/approval.component';
 @NgModule({
     imports: [
         BrowserModule,
@@ -26,6 +28,8 @@ import {RequestComponent} from './components/request/request.component';
         LoginComponent,
         HomeComponent,
         BrowseAllComponent,
+        BrowseHostComponent,
+        ApprovalComponent,
         RequestComponent,
         DashboardComponent,
         HeroDetailComponent,

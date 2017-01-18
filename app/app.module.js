@@ -22,7 +22,9 @@ var app_routing_1 = require('./app.routing');
 var login_component_1 = require('./components/login/login.component');
 var home_component_1 = require('./components/home/home.component');
 var browse_all_component_1 = require('./components/home/browse.all.component');
+var browse_host_component_1 = require('./components/home/browse.host.component');
 var request_component_1 = require('./components/request/request.component');
+var approval_component_1 = require('./components/approval/approval.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -40,6 +42,8 @@ var AppModule = (function () {
                 login_component_1.LoginComponent,
                 home_component_1.HomeComponent,
                 browse_all_component_1.BrowseAllComponent,
+                browse_host_component_1.BrowseHostComponent,
+                approval_component_1.ApprovalComponent,
                 request_component_1.RequestComponent,
                 dashboard_component_1.DashboardComponent,
                 hero_detail_component_1.HeroDetailComponent,

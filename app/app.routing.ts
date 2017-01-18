@@ -8,6 +8,8 @@ import { LoginComponent }  from './components/login/login.component';
 import { HomeComponent }  from './components/home/home.component';
 import { RequestComponent }  from './components/request/request.component';
 import { BrowseAllComponent }  from './components/home/browse.all.component';
+import {ApprovalComponent} from './components/approval/approval.component'
+import { BrowseHostComponent }  from './components/home/browse.host.component';
 const appRoutes: Routes = [
     {
         path: '',
@@ -27,8 +29,16 @@ const appRoutes: Routes = [
         component: HomeComponent
     },
     {
+        path: 'approve',
+        component: ApprovalComponent
+    },
+    {
         path: 'allRequests',
         component: BrowseAllComponent
+    },
+    {
+        path: 'byHost',
+        component: BrowseHostComponent
     },
     {
         path: 'new',

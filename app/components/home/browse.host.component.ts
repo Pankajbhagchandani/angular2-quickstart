@@ -4,10 +4,10 @@ import { Location }   from '@angular/common';
 import {Home} from './home.model';
 @Component({
     moduleId: module.id,
-    selector: 'browseAll',
-    templateUrl: 'browse.all.component.html'
+    selector: 'browseHost',
+    templateUrl: 'browse.host.component.html'
 })
-export class BrowseAllComponent implements OnInit {
+export class BrowseHostComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private location: Location
@@ -31,23 +31,21 @@ export class BrowseAllComponent implements OnInit {
     ];
 
     rows = [
-        { ReqId: '1001', Date: '11/12/2016', Time: '00:20:13:22', Requester: 'c998312',Platform:'DFAS',ReqTitle:'Port Allocation for Replication',Status:'Pending Approval'},
-        { ReqId: '1002', Date: '12/12/2016', Time: '00:20:13:22', Requester: 'c998312',Platform:'Gateway',ReqTitle:'Port Allocation for Replication',Status:'Pending Approval'},
-        { ReqId: '1003', Date: '13/12/2016', Time: '00:20:13:22', Requester: 'c998312',Platform:'BaaS',ReqTitle:'10G allocation',Status:'Pending Approval'},
-        { ReqId: '1004', Date: '14/12/2016', Time: '00:20:13:22', Requester: 'c998312',Platform:'Gateway',ReqTitle:'Netapp connection',Status:'Pending Approval'},
-        { ReqId: '1005', Date: '14/12/2016', Time: '00:20:13:22', Requester: 'c998312',Platform:'Gateway',ReqTitle:'Netapp connection',Status:'Pending Approval'},
-        { ReqId: '1006', Date: '14/12/2016', Time: '00:20:13:22', Requester: 'c998312',Platform:'Gateway',ReqTitle:'Netapp connection',Status:'Pending Approval'},
-        { ReqId: '1007', Date: '14/12/2016', Time: '00:20:13:22', Requester: 'c998312',Platform:'Gateway',ReqTitle:'Netapp connection',Status:'Pending Approval'},
+        { ReqId: '1001', HostName: 'CLA1-APN-M-L-05', BusinessOwner: 'c998366',Platform:'DFAS',NetworkDesigner:'d645447',OperationsContact:'d887636',PortId:'E1117',PortType:'Dual',Bandwidth:'10G'},
+        { ReqId: '1002', HostName: 'CLA1-APN-M-L-06', BusinessOwner: 'c998367',Platform:'Gateway',NetworkDesigner:'d645447',OperationsContact:'d887636',PortId:'E1118',PortType:'Dual',Bandwidth:'10G'},
+        { ReqId: '1003', HostName: 'CLA1-APN-M-L-06', BusinessOwner: 'c998389',Platform:'BaaS',NetworkDesigner:'d645447',OperationsContact:'d887636',PortId:'E1118',PortType:'Dual',Bandwidth:'10G'},
+        { ReqId: '1004', HostName: 'CLA1-APN-M-L-05', BusinessOwner: 'c998312',Platform:'Gateway',NetworkDesigner:'d645447',OperationsContact:'d887636',PortId:'E1117',PortType:'Dual',Bandwidth:'10G'},
     ];
     columns = [
         { prop: 'ReqId' },
-        { prop: 'Date' },
-        { prop: 'Time'},
-        { prop: 'Requester' },
+        { prop: 'HostName' },
+        { prop: 'BusinessOwner' },
         { prop: 'Platform' },
-        { prop: 'ReqTitle' },
-        { prop: 'Status' },
-
+        { prop: 'NetworkDesigner' },
+        { prop: 'OperationsContact' },
+        { prop: 'PortId' },
+        { prop: 'PortType' },
+        { prop: 'Bandwidth' },
     ];
 
     port_detail_rows = [
@@ -96,6 +94,30 @@ export class BrowseAllComponent implements OnInit {
         // filter our data
         let temp = this.temp.filter(function(d) {
             return d.Platform.toLowerCase().indexOf(val) !== -1 || !val;
+        });
+
+        // update the rows
+        this.rows = temp;
+    }
+    filterByHostName(event) {
+        let val = event.target.value;
+
+        // filter our data
+        let temp = this.temp.filter(function(d) {
+            return d.HostName.toLowerCase().indexOf(val) !== -1 || !val;
+        });
+
+        // update the rows
+        this.rows = temp;
+    }
+
+    filterByPort(event) {
+        console.log(event.target.value);
+        let val = event.target.value;
+
+        // filter our data
+        let temp = this.temp.filter(function(d) {
+            return d.PortId.toLowerCase().indexOf(val) !== -1 || !val;
         });
 
         // update the rows
