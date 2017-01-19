@@ -9,8 +9,9 @@ import { HeroDetailComponent }  from './hero-detail.component';
 import { HeroesComponent }      from './heroes.component';
 import { HeroService }          from './hero.service';
 import { routing } from './app.routing';
-import {LoginComponent} from './components/login/login.component'
-import {HomeComponent} from './components/home/home.component'
+import {LoginComponent} from './components/login/login.component';
+import {HomeComponent} from './components/home/home.component';
+import {MyRequestComponent} from './components/home/myrequest.component';
 import { BrowseAllComponent }  from './components/home/browse.all.component';
 import { BrowseHostComponent }  from './components/home/browse.host.component';
 import {RequestComponent} from './components/request/request.component';
@@ -26,11 +27,12 @@ import {ApprovalComponent} from './components/approval/approval.component';
     declarations: [
         AppComponent,
         LoginComponent,
-        HomeComponent,
+        MyRequestComponent,
         BrowseAllComponent,
         BrowseHostComponent,
         ApprovalComponent,
         RequestComponent,
+        HomeComponent,
         DashboardComponent,
         HeroDetailComponent,
         HeroesComponent

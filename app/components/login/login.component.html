@@ -1,8 +1,25 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <img class="header-image" src="logo.png">
+            <li class="link"><a class="link" routerLink="/login">Home</a></li>
+            <li class="active"><a class="link" routerLink="/login" routerLinkActive="active">My Requests</a></li>
+            <li class="link"><a class="link" routerLink="/login" routerLinkActive="active">All requests</a></li>
+            <li class="link"><a class="link" routerLink="/login">Browse by device</a></li>
+            <li class="link"><a class="link" routerLink="/login" routerLinkActive="active">My Approvals</a></li>
+            <li class="link"><a class="link" routerLink="/login">New Request</a></li>
+            <li><a class="link" routerLink="/login">About</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container-fluid">
 <div class="jumbotron">
     <div class="container-fluid">
-        <div class="col-md-4 col-md-offset-4">
+        <div class="col-md-6">
+            <div class="header">APN SELF SERVE PORTAL - Login</div>
+        </div>
+        <div class="col-md-6">
             <div [hidden]="submitted">
-                <h2>Login</h2>
                 <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
                     <div class="form-group">
                         <label for="name">Username</label>
@@ -26,4 +43,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>

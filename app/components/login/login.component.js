@@ -20,7 +20,7 @@ var LoginComponent = (function () {
     LoginComponent.prototype.ngOnInit = function () {
     };
     LoginComponent.prototype.onSubmit = function () {
-        var link = ['/home'];
+        var link = ['/myRequest'];
         this.router.navigate(link);
     };
     LoginComponent = __decorate([

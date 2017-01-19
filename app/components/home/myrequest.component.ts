@@ -1,13 +1,13 @@
-import { Component, OnInit }      from '@angular/core';
+import { Component, OnInit}      from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location }   from '@angular/common';
 import {MyRequest} from './myrequest.model';
 @Component({
     moduleId: module.id,
-    selector: 'browseAll',
-    templateUrl: 'browse.all.component.html'
+    selector: 'myRequest',
+    templateUrl: 'myrequest.component.html'
 })
-export class BrowseAllComponent implements OnInit {
+export class MyRequestComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private location: Location
@@ -50,22 +50,26 @@ export class BrowseAllComponent implements OnInit {
 
     ];
 
-    port_detail_rows = [
-        { PortId: 'E1117', UUID: 'a18083b5-01b2-4e5d-b352-560e8e189db6', Layer: '1',Bandwidth:'10G',Type:'Dual',VLANMode:'Trunk',Platform:'DFAS'},
-        { PortId: 'E1117', UUID: 'a18083b5-01b2-4e5d-b352-560e8e189db6', Layer: '2',Bandwidth:'10G',Type:'Dual',VLANMode:'Trunk',Platform:'DFAS'},
-        { PortId: 'E1117', UUID: 'a18083b5-01b2-4e5d-b352-560e8e189db6', Layer: '3',Bandwidth:'10G',Type:'Dual',VLANMode:'Trunk',Platform:'DFAS'},
-        { PortId: 'E1118', UUID: 'a18083b5-01b2-4e5d-b352-560e8e189db6', Layer: '1',Bandwidth:'10G',Type:'Dual',VLANMode:'Trunk',Platform:'DFAS'},
-        { PortId: 'E1118', UUID: 'a18083b5-01b2-4e5d-b352-560e8e189db6', Layer: '2',Bandwidth:'10G',Type:'Dual',VLANMode:'Trunk',Platform:'DFAS'},
-        { PortId: 'E1118', UUID: 'a18083b5-01b2-4e5d-b352-560e8e189db6', Layer: '3',Bandwidth:'10G',Type:'Dual',VLANMode:'Trunk',Platform:'DFAS'},
+    req_detail_rows = [
+        { ReqId: '1001', PortId: 'E1117', UUID: 'a18083b5-01b2-4e5d-b352-560e8e189db6', Bandwidth: '10G',Type:'Dual',VLANMode:'Trunk',
+            Connection:'SFP',DeviceModel:'CISCO 9396',HostName:'CLA1-APN-M-L-06',DataCentre:'CLY',RoomNumber:'DE',RackLocation:'34',Aisle:'2'},
+        { ReqId: '1001', PortId: 'E1117', UUID: 'a18083b5-01b2-4e5d-b352-560e8e189db6', Bandwidth: '10G',Type:'Dual',VLANMode:'Trunk',
+            Connection:'SFP',DeviceModel:'CISCO 9396',HostName:'CLA1-APN-M-L-07',DataCentre:'CLY',RoomNumber:'DE',RackLocation:'35',Aisle:'6'}
     ];
-    port_detail_columns = [
+    req_detail_columns = [
+        { prop: 'ReqId' },
         { prop: 'PortId' },
         { prop: 'UUID' },
-        { prop: 'Layer' },
         { prop: 'Bandwidth' },
         { prop: 'Type' },
         { prop: 'VLANMode' },
-        { prop: 'Platform' },
+        { prop: 'Connection' },
+        { prop: 'DeviceModel' },
+        { prop: 'HostName' },
+        { prop: 'DataCentre' },
+        { prop: 'RoomNumber' },
+        { prop: 'RackLocation' },
+        { prop: 'Aisle' },
 
     ];
 
@@ -85,6 +89,9 @@ export class BrowseAllComponent implements OnInit {
     selected = [];
     displayRequestDetails=false;
     onSelect({ selected }) {
+        console.log('Select Event', selected, this.selected);
+        this.req_detail_rows[0].ReqId = selected[0].ReqId;
+        this.req_detail_rows[1].ReqId = selected[0].ReqId;
         this.displayRequestDetails = true;
     }
     onDeselected(item):void {

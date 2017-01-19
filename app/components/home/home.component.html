@@ -1,79 +1,88 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">APN Self Service Portal</a>
-                </div>
-                <ul class="nav navbar-nav">
-                    <li class="active"><a class="link" routerLink="/home" routerLinkActive="active">Home</a></li>
-                    <li class="link"><a class="link" routerLink="/allRequests" routerLinkActive="active">Browse all requests</a></li>
-                    <li class="link"><a class="link" routerLink="/byHost">Browse by host</a></li>
-                    <li class="link"><a class="link" routerLink="/approve" routerLinkActive="active">Requests for approval</a></li>
-                    <li class="link"><a class="link" routerLink="/new">New Request</a></li>
-                    <li><a class="link" routerLink="/about">About</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Pankaj</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-                </ul>
-        </div>
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <img class="header-image" src="logo.png">
+            <li class="active"><a class="link" routerLink="/home" routerLinkActive="active">Home</a></li>
+            <li class="link"><a class="link" routerLink="/myRequest">My Requests</a></li>
+            <li class="link"><a class="link" routerLink="/allRequests">All requests</a></li>
+            <li class="link"><a class="link" routerLink="/byHost">Browse by device</a></li>
+            <li class="link"><a class="link" routerLink="/approve" routerLinkActive="active">My Approvals</a></li>
+            <li class="link"><a class="link" routerLink="/new">New Request</a></li>
+            <li><a class="link" routerLink="/about">About</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Pankaj</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        </ul>
+    </div>
 </nav>
+<!--<div class="container">
+    <div class="jumbotron">
+        <div class="row">
+            <span class="header">AUTOMATED PROGRAMMABLE NETWORK : SELF SERVE PORTAL</span>
+        </div>
+    </div>
+</div>-->
+
 <div class="container-fluid">
     <div class="jumbotron">
-        <h4>Request Summary</h4>
         <div class="container-fluid">
-        <div class="col-md-4">
-            <form #searchForm="ngForm">
-                <div class="form-group">
-                    <label for="filter">Search by Platform</label>
-                    <ng-select
-                            [options]="options_platform"
-                            (selected)="updateFilter($event)"
-                            (deselected)="onDeselected($event)"
-                            [allowClear]="true">
-                    </ng-select>
+            <div class="header">APN SELF SERVE PORTAL - HOME</div>
+            <div class="col-md-3">
+                <div class="row">
+                    <p><img src="network.png"><span class="h5">Network Service</span></p>
                 </div>
-            </form>
-        </div>
-        <div class="col-md-12">
-            <ngx-datatable class="material table table-striped"
-                           [rows]="rows"
-                           [columns]="columns"
-                           [sortType]="'multi'"
-                           [columnMode]="'force'"
-                           [headerHeight]="50"
-                           [footerHeight]="50"
-                           [rowHeight]="50"
-                           [scrollbarH]="true"
-                           [scrollbarV]="true"
-                           [selected]="selected"
-                           [selectionType]="'single'"
-                           (select)='onSelect($event)'
-                           [limit]="2">
-            </ngx-datatable>
-        </div>
-    </div>
-    </div>
-</div>
-<div class="container-fluid" *ngIf="displayRequestDetails">
-    <h4>Request Details</h4>
-    <div class="jumbotron">
-        <div class="container-fluid">
-            <div class="col-md-12">
-                <ngx-datatable class="material table table-striped"
-                               [rows]="req_detail_rows"
-                               [columns]="req_detail_columns"
-                               [sortType]="'multi'"
-                               [columnMode]="'force'"
-                               [headerHeight]="50"
-                               [footerHeight]="50"
-                               [rowHeight]="50"
-                               [scrollbarH]="true"
-                               [scrollbarV]="true"
-                               [selected]="selected"
-                               [selectionType]="'single'"
-                               (select)='onSelect($event)'
-                               [limit]="2">
-                </ngx-datatable>
+                <div class="subrow">
+                    <ul><li>Network Service Offering</li></ul>
+                    <p>APN offers an automated port allocation so you can set up your service across CISCO 9332/9372/9396 and ASR8600 physical devices.
+                        <br><br>You are able to requests Layer 1 &amp; 2 ports here in any of the following Data Centres:
+                        <br>Clayton, VIC
+                        <br>St Leonards, NSW
+                        <br><br>Once you have setup your network in APN, you will have access to RDN, TID and Clouds, such as IBM SoftLayer, AWS, and Microsoft Azure.
+                        <br><br>APN also offers the ability to automatically setup Layer 3 connection through the use of an API.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="row">
+                    <p><img src="firewall.png"><span class="h5">Firewall Service</span></p>
+                </div>
+                <div class="subrow">
+                    <ul><li>Firewall Service Offering</li></ul>
+                    <p>
+                        You can order an enterprise grade firewall here, where a VSYS will be setup as part of a partitioned physical firewall (Palo Alto).
+                        <br><br>Coming soon: This Service will be available in as part of the 1703 release due on 28/03/2017)
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="row">
+                    <p><img src="loadbalancer.png"><span class="h5">Load Balance Service</span></p>
+                </div>
+                <div class="subrow">
+                    <ul><li>Load Balance Service Offering</li></ul>
+                    <p>
+                        APN offers shared Load Balancer services and Dedicated Load Balance options that run on F5 Viprion physical devices located in Clayton and St Leonards.
+                        <br><br>Coming soon: This Service will be available in as part of the 1703 release due on 28/03/2017)
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="row">
+                    <p><img src="me.png"><span class="h5">My Requests</span></p>
+                </div>
+                <div class="subrow">
+                    <ul>
+                        <li><a routerLink="/new">Request a Port</a></li>
+                        <li><a routerLink="/myRequest">List My Requests</a></li>
+                        <li><a routerLink="/allRequests">List All Requests</a></li>
+                        <li><a routerLink="/approve">List My Pending Approvals</a></li>
+                    </ul>
+                    <p>
+                        You can view the status of your open requests here, or any requests pending your approval here.
+                        <br><br>Alternatively, you can view the history of requests made on a device or platform.
+                    </p>
+                </div>
             </div>
         </div>
     </div>

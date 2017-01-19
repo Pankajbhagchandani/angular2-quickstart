@@ -11,12 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var common_1 = require('@angular/common');
-var home_model_1 = require('./home.model');
+var myrequest_model_1 = require('./myrequest.model');
 var BrowseAllComponent = (function () {
     function BrowseAllComponent(route, location) {
         this.route = route;
         this.location = location;
-        this.model = new home_model_1.Home();
+        this.model = new myrequest_model_1.MyRequest();
         this.options_platform = [
             {
                 value: 'dfas',

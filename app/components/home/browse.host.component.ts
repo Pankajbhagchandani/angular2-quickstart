@@ -1,7 +1,7 @@
 import { Component, OnInit }      from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location }   from '@angular/common';
-import {Home} from './home.model';
+import {MyRequest} from './myrequest.model';
 @Component({
     moduleId: module.id,
     selector: 'browseHost',
@@ -13,7 +13,7 @@ export class BrowseHostComponent implements OnInit {
         private location: Location
     ) {}
 
-    model = new Home();
+    model = new MyRequest();
 
     options_platform = [
         {

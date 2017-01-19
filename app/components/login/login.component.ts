@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
     }
 
     onSubmit(): void {
-        let link = ['/home'];
+        let link = ['/myRequest'];
         this.router.navigate(link);
     }
 }

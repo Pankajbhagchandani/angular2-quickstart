@@ -1,17 +1,13 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">
-                APN Selft Service Portal
-            </a>
-        </div>
         <ul class="nav navbar-nav">
+            <img class="header-image" src="logo.png">
             <li class="link"><a class="link" routerLink="/home">Home</a></li>
-            <li class="link"><a class="link" routerLink="/allRequests" routerLinkActive="active">Browse all requests</a>
-            </li>
-            <li class="link"><a class="link" routerLink="/allRequests" routerLinkActive="active">Requests for
-                approval</a></li>
-            <li class="active"><a class="link" routerLink="/new" routerLinkActive="active">New Request</a></li>
+            <li class="link"><a class="link" routerLink="/myRequest">My Requests</a></li>
+            <li class="link"><a class="link" routerLink="/allRequests" routerLinkActive="active">All requests</a></li>
+            <li class="link"><a class="link" routerLink="/byHost">Browse by device</a></li>
+            <li class="link"><a class="link" routerLink="/approve">My Approvals</a></li>
+            <li class="active"><a class="link" routerLink="/new">New Request</a></li>
             <li><a class="link" routerLink="/about">About</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -23,6 +19,7 @@
 <div class="container-fluid">
     <div class="jumbotron">
         <div *ngIf="!showPreviewPanel" class="container-fluid">
+            <div class="header">APN SELF SERVE PORTAL - New Request</div>
             <div [hidden]="submitted">
                 <form (ngSubmit)="continue()" #requestForm="ngForm">
                     <div class="form-group row">
@@ -146,6 +143,7 @@
             </div>
         </div>
         <div *ngIf="showPreviewPanel" class="container-fluid">
+            <div class="header">APN SELF SERVE PORTAL - New Request</div>
             <div class="panel-group">
                 <div class="panel panel-default">
                     <div class="panel-heading">Project Details</div>
