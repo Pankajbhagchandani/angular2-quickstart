@@ -1,5 +1,5 @@
 "use strict";
-var heroes_component_1 = require('./heroes.component');
+var heroes_component_1 = require("./heroes.component");
 var appRoutes = [
     {
         path: 'heroes',
